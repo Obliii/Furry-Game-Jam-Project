@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ellxio420wg0"]
+
+[node name="Level 0" type="Node2D"]
+
+[node name="Alpha" type="Node2D" parent="."]
+
+[node name="Beta" type="Node2D" parent="."]
