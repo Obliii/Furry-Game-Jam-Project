@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://big3i1s6oy043"]
+[gd_scene load_steps=3 format=3 uid="uid://big3i1s6oy043"]
 
+[ext_resource type="Script" uid="uid://lapwwsu4miq1" path="res://Scenes/Scripts/main_instance.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://0ris8qlqq1r6" path="res://Scenes/main_menu.tscn" id="1_jjgbg"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_bo1nx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+bus = &"Music"
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 10
+bus = &"Sound"
+
+[node name="Game" type="Node" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
