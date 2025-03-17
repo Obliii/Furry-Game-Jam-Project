@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy7gosyf4j8ts"]
+
+[ext_resource type="Script" uid="uid://donmb1tuhqbjd" path="res://Characters/Scripts/Player.gd" id="1_t8hoq"]
+[ext_resource type="Script" uid="uid://bpm2e4ih33fa1" path="res://Util/Components/PlayerControllerComponent.gd" id="2_1ju47"]
+[ext_resource type="Script" uid="uid://cvweate6jfofa" path="res://Util/Components/MoveComponent.gd" id="3_ynroq"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t8hoq"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oo13o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ju47"]
+size = Vector2(32, 32)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_t8hoq")
+metadata/_custom_type_script = "uid://donmb1tuhqbjd"
+
+[node name="PlaceholderSprite" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_t8hoq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oo13o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1ju47")
+
+[node name="PlayerControllerComponent" type="Node" parent="."]
+script = ExtResource("2_1ju47")
+metadata/_custom_type_script = "uid://bpm2e4ih33fa1"
+
+[node name="MoveComponent" type="Node" parent="."]
+script = ExtResource("3_ynroq")
+metadata/_custom_type_script = "uid://cvweate6jfofa"

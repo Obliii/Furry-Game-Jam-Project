@@ -5,6 +5,7 @@ var viewport: Vector2i = Vector2i(1152, 648)
 var game_camera: Camera2D
 var music_player: AudioStreamPlayer2D
 var sound_player: AudioStreamPlayer2D
+var game_version: GameState.Version
 
 # Game Instances
 var player: CharacterBody2D
