@@ -1,17 +1,57 @@
-[gd_scene load_steps=3 format=4 uid="uid://ellxio420wg0"]
+[gd_scene load_steps=5 format=4 uid="uid://ellxio420wg0"]
 
 [ext_resource type="TileSet" uid="uid://dv1g24yv5ywgn" path="res://Util/Tilemaps/PillarTileMap.tres" id="1_8ryqv"]
 [ext_resource type="PackedScene" uid="uid://cy7gosyf4j8ts" path="res://Characters/Player.tscn" id="2_8ryqv"]
+[ext_resource type="Script" uid="uid://c37wq3livup1t" path="res://Util/Components/sync_component.gd" id="2_31js7"]
+[ext_resource type="Script" uid="uid://dlygoy3p41vik" path="res://Util/Components/camera_sync_component.gd" id="4_pspvu"]
 
 [node name="Level 0" type="Node2D"]
 
 [node name="Alpha" type="Node2D" parent="."]
+position = Vector2(0, 2000)
 
-[node name="Beta" type="Node2D" parent="."]
+[node name="AlphaPlayer" parent="Alpha" instance=ExtResource("2_8ryqv")]
+position = Vector2(416, 382)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="SyncComponent" type="Node" parent="Alpha/AlphaPlayer" node_paths=PackedStringArray("synced_object")]
+script = ExtResource("2_31js7")
+version = 1
+synced_object = NodePath("../../../Beta/BetaPlayer")
+metadata/_custom_type_script = "uid://c37wq3livup1t"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Alpha"]
+self_modulate = Color(1, 0.301961, 1, 1)
 tile_map_data = PackedByteArray("AAADAA4AAAAEAAAAAAADAAwAAAAEAAAAAAADAAoAAAAEAAAAAAADAAgAAAAEAAAAAAADABAAAAAEAAAAAAADAAYAAAAAAAAAAAADABIAAAAIAAAAAAAFABEAAAAEAAAAAAAGABEAAAAEAAAAAAAHABEAAAAEAAAAAAAIABEAAAAEAAAAAAAJABEAAAAEAAAAAAAKABEAAAAEAAAAAAALABEAAAAEAAAAAAAMABEAAAAEAAAAAAANABEAAAAEAAAAAAAOABEAAAAEAAAAAAAPABEAAAAEAAAAAAAQABEAAAAEAAAAAAARABEAAAAEAAAAAAASABEAAAAEAAAAAAATABEAAAAEAAAAAAAUABEAAAAEAAAAAAAVABEAAAAEAAAAAAAWABEAAAAEAAAAAAAXABEAAAAEAAAAAAAYABEAAAAEAAAAAAAZABEAAAAEAAAAAAAaABEAAAAEAAAAAAAbABEAAAAEAAAAAAAcABEAAAAEAAAAAAA=")
 tile_set = ExtResource("1_8ryqv")
 
-[node name="Player" parent="." instance=ExtResource("2_8ryqv")]
+[node name="AlphaCamera" type="Camera2D" parent="Alpha"]
+position = Vector2(576, 324)
+enabled = false
+
+[node name="CameraSyncComponent" type="Node" parent="Alpha/AlphaCamera" node_paths=PackedStringArray("synced_object")]
+script = ExtResource("4_pspvu")
+version = 1
+synced_object = NodePath("../../../Beta/BetaCamera")
+metadata/_custom_type_script = "uid://dlygoy3p41vik"
+
+[node name="Beta" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Beta"]
+tile_map_data = PackedByteArray("AAADAA4AAAAEAAAAAAADAAwAAAAEAAAAAAADAAoAAAAEAAAAAAADAAgAAAAEAAAAAAADABAAAAAEAAAAAAADAAYAAAAAAAAAAAADABIAAAAIAAAAAAAFABEAAAAEAAAAAAAGABEAAAAEAAAAAAAHABEAAAAEAAAAAAAIABEAAAAEAAAAAAAJABEAAAAEAAAAAAAKABEAAAAEAAAAAAALABEAAAAEAAAAAAAMABEAAAAEAAAAAAANABEAAAAEAAAAAAAOABEAAAAEAAAAAAAPABEAAAAEAAAAAAAQABEAAAAEAAAAAAARABEAAAAEAAAAAAASABEAAAAEAAAAAAATABEAAAAEAAAAAAAUABEAAAAEAAAAAAAVABEAAAAEAAAAAAAWABEAAAAEAAAAAAAXABEAAAAEAAAAAAAYABEAAAAEAAAAAAAZABEAAAAEAAAAAAAaABEAAAAEAAAAAAAbABEAAAAEAAAAAAAcABEAAAAEAAAAAAA=")
+tile_set = ExtResource("1_8ryqv")
+
+[node name="BetaPlayer" parent="Beta" instance=ExtResource("2_8ryqv")]
 position = Vector2(589, 401)
+
+[node name="SyncComponent" type="Node" parent="Beta/BetaPlayer" node_paths=PackedStringArray("synced_object")]
+script = ExtResource("2_31js7")
+synced_object = NodePath("../../../Alpha/AlphaPlayer")
+metadata/_custom_type_script = "uid://c37wq3livup1t"
+
+[node name="BetaCamera" type="Camera2D" parent="Beta"]
+position = Vector2(576, 324)
+
+[node name="CameraSyncComponent" type="Node" parent="Beta/BetaCamera" node_paths=PackedStringArray("synced_object")]
+script = ExtResource("4_pspvu")
+synced_object = NodePath("../../../Alpha/AlphaCamera")
+metadata/_custom_type_script = "uid://dlygoy3p41vik"
