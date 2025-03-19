@@ -37,7 +37,7 @@ theme_override_constants/separation = 70
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer3"]
 layout_mode = 2
-text = "Furry Game #1"
+text = "Project Her0.1"
 horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer3"]
