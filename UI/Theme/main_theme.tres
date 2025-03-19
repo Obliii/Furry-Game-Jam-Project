@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://xtfckssx3a1i"]
+
+[sub_resource type="SystemFont" id="SystemFont_m7y8g"]
+font_names = PackedStringArray("Montserrat")
+
+[resource]
+Button/fonts/font = SubResource("SystemFont_m7y8g")
