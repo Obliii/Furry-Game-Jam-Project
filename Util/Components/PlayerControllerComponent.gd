@@ -16,4 +16,4 @@ func _process(_delta) -> void:
 			move_component.jump_input()
 		
 		if Input.is_action_just_pressed("move_swap_version"):
-			Global.pick_next_state()
+			Global.game_instance.pick_next_state()
