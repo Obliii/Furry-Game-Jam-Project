@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do711jdog8gbg"
-path="res://.godot/imported/Sprite Sheet of background.png-dab3d1d51a0b29285a2039bea87c901b.ctex"
+uid="uid://ce8ahx23o3jb2"
+path="res://.godot/imported/Pillar_sprite_sheet.png-88fda0d7dfb59efae94433552e90be53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art_Assets/Sprite Sheet of background.png"
-dest_files=["res://.godot/imported/Sprite Sheet of background.png-dab3d1d51a0b29285a2039bea87c901b.ctex"]
+source_file="res://Art_Assets/SpriteSheets/Pillar_sprite_sheet.png"
+dest_files=["res://.godot/imported/Pillar_sprite_sheet.png-88fda0d7dfb59efae94433552e90be53.ctex"]
 
 [params]
 

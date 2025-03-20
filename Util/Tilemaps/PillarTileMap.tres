@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dv1g24yv5ywgn"]
 
-[ext_resource type="Texture2D" uid="uid://ce8ahx23o3jb2" path="res://Art_Assets/Pillar_sprite_sheet.png" id="1_j2cbp"]
+[ext_resource type="Texture2D" uid="uid://ce8ahx23o3jb2" path="res://Art_Assets/SpriteSheets/Pillar_sprite_sheet.png" id="1_j2cbp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr47v"]
 resource_name = "Pillar Sprite"
