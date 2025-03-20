@@ -44,6 +44,8 @@ func jump_input():
 	if jump_held:
 		entity.velocity.y += sustained_jump_strength
 
+## Entity is able to climb the ladder. Their gravity is temporarily removed and they will be placed
+## on the center of the ladder.
 func climb_ladder(vertical_move):
 	# TODO: Pass much of this onto the ladder with an Area2D detecting the player.
 	if (vertical_move != 0) and true:

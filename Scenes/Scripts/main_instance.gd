@@ -1,5 +1,7 @@
 extends Node2D
 
+var current_level_details
+
 func _ready() -> void:
 	Global.game_instance = $Game
 	Global.game_camera = $Camera2D
@@ -16,3 +18,9 @@ func pick_next_state():
 	if Global.game_version >= GameState.Version.size():
 		Global.game_version = 1
 	Global.version_changed.emit(Global.game_version)
+
+func restart_level():
+	pass
+	
+func load_level_details():
+	pass

@@ -14,6 +14,8 @@ size = Vector2(32, 32)
 size = Vector2(32, 32)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 5
+collision_mask = 5
 floor_stop_on_slope = false
 script = ExtResource("1_t8hoq")
 metadata/_custom_type_script = "uid://donmb1tuhqbjd"
