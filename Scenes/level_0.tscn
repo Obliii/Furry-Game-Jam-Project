@@ -39,25 +39,25 @@ tile_map_data = PackedByteArray("AAABABIAAgAIAAgAAAADAAgAAAAEAAAAAAADAAoAAAAEAAA
 tile_set = ExtResource("1_8ryqv")
 
 [node name="AlphaDoor1" parent="Alpha" node_paths=PackedStringArray("associated_key") instance=ExtResource("5_fxla4")]
-position = Vector2(5128, 177)
+position = Vector2(5105, 179)
 scale = Vector2(2.75623, 2.57941)
 associated_key = NodePath("../AlphaKey1")
 
 [node name="AlphaKey1" parent="Alpha" instance=ExtResource("6_ibbt5")]
-position = Vector2(4529, 189)
+position = Vector2(4530, 185)
 scale = Vector2(1.68636, 1.68636)
 
 [node name="AlphaDoor2" parent="Alpha" node_paths=PackedStringArray("associated_key") instance=ExtResource("5_fxla4")]
-position = Vector2(8102, 337)
+position = Vector2(8082, 340)
 scale = Vector2(3.87981, 3.87981)
 associated_key = NodePath("../AlphaKey2")
 
 [node name="AlphaKey2" parent="Alpha" instance=ExtResource("6_ibbt5")]
-position = Vector2(7824, -83.0002)
+position = Vector2(7800, -78)
 scale = Vector2(1.88081, 1.88081)
 
 [node name="AlphaDoor3" parent="Alpha" node_paths=PackedStringArray("associated_key") instance=ExtResource("5_fxla4")]
-position = Vector2(10951, 16.9998)
+position = Vector2(10919, 20.9998)
 scale = Vector2(3.85665, 3.85665)
 associated_key = NodePath("../AlphaKey3")
 
@@ -90,25 +90,25 @@ synced_object = NodePath("../../../../Alpha/AlphaPlayer/AlphaCamera")
 metadata/_custom_type_script = "uid://dlygoy3p41vik"
 
 [node name="BetaDoor1" parent="Beta" node_paths=PackedStringArray("associated_key") instance=ExtResource("5_fxla4")]
-position = Vector2(5095, 112)
+position = Vector2(5072, 114)
 scale = Vector2(2.75623, 2.57941)
 associated_key = NodePath("../BetaKey1")
 
 [node name="BetaKey1" parent="Beta" instance=ExtResource("6_ibbt5")]
-position = Vector2(4496, 124)
+position = Vector2(4496, 120)
 scale = Vector2(1.68636, 1.68636)
 
 [node name="BetaDoor2" parent="Beta" node_paths=PackedStringArray("associated_key") instance=ExtResource("5_fxla4")]
-position = Vector2(8069, 272)
+position = Vector2(8049, 275)
 scale = Vector2(3.87981, 3.87981)
 associated_key = NodePath("../BetaKey2")
 
 [node name="BetaKey2" parent="Beta" instance=ExtResource("6_ibbt5")]
-position = Vector2(7791, -148)
+position = Vector2(7768, -146)
 scale = Vector2(1.88081, 1.88081)
 
 [node name="BetaDoor3" parent="Beta" node_paths=PackedStringArray("associated_key") instance=ExtResource("5_fxla4")]
-position = Vector2(10918, -48)
+position = Vector2(10886, -44)
 scale = Vector2(3.85665, 3.85665)
 associated_key = NodePath("../BetaKey3")
 

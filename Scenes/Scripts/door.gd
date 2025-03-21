@@ -12,3 +12,4 @@ func _body_entered(body: Node2D):
 		queue_free()
 		if associated_key:
 			associated_key.queue_free()
+			
