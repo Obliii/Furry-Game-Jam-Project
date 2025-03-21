@@ -27,6 +27,7 @@ window/stretch/mode="viewport"
 
 folder_colors={
 "res://Art_Assets/": "red",
+"res://Audio/": "purple",
 "res://Characters/": "blue",
 "res://Scenes/": "orange",
 "res://UI/": "green",
