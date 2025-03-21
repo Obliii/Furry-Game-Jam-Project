@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdhyasa653quu"]
+
+[ext_resource type="Texture2D" uid="uid://dvj6naarh5fy2" path="res://Art_Assets/2D_Elements/square-png.webp" id="1_w5g68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l8es"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(-0.189047, -0.189047)
+texture = ExtResource("1_w5g68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4.93604, 4.93604)
+shape = SubResource("RectangleShape2D_3l8es")
