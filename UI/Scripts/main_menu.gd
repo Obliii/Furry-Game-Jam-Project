@@ -20,3 +20,5 @@ func _on_quit_button_pressed() -> void:
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	# we gotta get outta here
 	get_tree().quit()
+	
+	# eepy weepy

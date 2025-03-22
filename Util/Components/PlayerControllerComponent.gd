@@ -12,6 +12,9 @@ func _process(_delta) -> void:
 		move_component.entity.velocity.x = horizontal_move
 		move_component.climb_ladder(vertical_move)
 		
+		if horizontal_move:
+			move_component.move_entity(horizontal_move)
+		
 		if Input.is_action_just_pressed("move_jump"):
 			move_component.jump_input()
 		
