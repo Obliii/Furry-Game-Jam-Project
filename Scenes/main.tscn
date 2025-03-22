@@ -9,12 +9,14 @@ script = ExtResource("1_bo1nx")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
+max_distance = 1e+14
 attenuation = 1e-05
 panning_strength = 0.0
 bus = &"Music"
 
 [node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
+max_distance = 1e+13
 attenuation = 1e-05
 max_polyphony = 10
 panning_strength = 0.0
