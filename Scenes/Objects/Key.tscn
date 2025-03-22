@@ -1,17 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://c081hw8wlf67y"]
+[gd_scene load_steps=6 format=3 uid="uid://c081hw8wlf67y"]
+
+[ext_resource type="Texture2D" uid="uid://cbhpn3kunr8y2" path="res://Art_Assets/Simple Assets/Key_sprite.png" id="1_f5qjs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rt11x"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_og2wv"]
+[sub_resource type="Animation" id="Animation_f5qjs"]
+resource_name = "floating"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(7.15256e-07, 5.96046e-08), Vector2(0, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_c40qh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.15256e-07, 5.96046e-08)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hqtop"]
+_data = {
+&"RESET": SubResource("Animation_c40qh"),
+&"floating": SubResource("Animation_f5qjs")
+}
 
 [node name="Key" type="Area2D"]
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.15256e-07, 5.96046e-08)
+scale = Vector2(0.3125, 0.3125)
+texture = ExtResource("1_f5qjs")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rt11x")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(18, 18)
-texture = SubResource("PlaceholderTexture2D_og2wv")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hqtop")
+}
+autoplay = "floating"
