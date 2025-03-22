@@ -23,10 +23,13 @@ func pick_next_state():
 func setup_level():
 	var new_level = current_level_details.instantiate()
 	Global.game_container.add_child(new_level)
+	Global.game_started.emit()
+	Global.game_version = GameState.Version.GS_BETA
+	Global.music_player.stream = load("res://Art_Assets/Music/8bit.mp3")
+	Global.music_player.play()
 
 func restart_level():
 	setup_level()
-	Global.level_restarted.emit()
 	
 func load_level_details(scene):
 	for entry in Global.game_container.get_children():
