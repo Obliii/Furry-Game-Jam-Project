@@ -17,6 +17,7 @@ bus = &"Music"
 autoplay = true
 attenuation = 1e-05
 max_polyphony = 10
+panning_strength = 0.0
 bus = &"Sound"
 
 [node name="Game" type="Node" parent="."]

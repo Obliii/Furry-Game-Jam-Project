@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://ellxio420wg0"]
+[gd_scene load_steps=8 format=4 uid="uid://ellxio420wg0"]
 
 [ext_resource type="TileSet" uid="uid://dv1g24yv5ywgn" path="res://Util/Tilemaps/PillarTileMap.tres" id="1_8ryqv"]
 [ext_resource type="PackedScene" uid="uid://cy7gosyf4j8ts" path="res://Characters/Player.tscn" id="2_8ryqv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dlygoy3p41vik" path="res://Util/Components/camera_sync_component.gd" id="4_pspvu"]
 [ext_resource type="PackedScene" uid="uid://cdq3fprhi11u8" path="res://Scenes/Objects/Door.tscn" id="5_fxla4"]
 [ext_resource type="PackedScene" uid="uid://c081hw8wlf67y" path="res://Scenes/Objects/Key.tscn" id="6_ibbt5"]
+[ext_resource type="PackedScene" uid="uid://e1o6so8bfqws" path="res://Scenes/Objects/Spike.tscn" id="7_ibbt5"]
 
 [node name="Level 0" type="Node2D"]
 
@@ -115,6 +116,9 @@ associated_key = NodePath("../BetaKey3")
 [node name="BetaKey3" parent="Beta" instance=ExtResource("6_ibbt5")]
 position = Vector2(9518, -206)
 scale = Vector2(2.19051, 2.19051)
+
+[node name="Spike" parent="Beta" instance=ExtResource("7_ibbt5")]
+position = Vector2(762, 471)
 
 [node name="TutoMovements" type="Label" parent="."]
 offset_left = 458.0

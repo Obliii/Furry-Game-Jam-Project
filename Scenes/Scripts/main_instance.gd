@@ -21,6 +21,8 @@ func pick_next_state():
 	Global.version_changed.emit(Global.game_version)
 
 func setup_level():
+	for entry in Global.game_container.get_children():
+		entry.queue_free()
 	var new_level = current_level_details.instantiate()
 	Global.game_container.add_child(new_level)
 	Global.game_started.emit()
