@@ -1,15 +1,14 @@
 [gd_scene load_steps=8 format=3 uid="uid://c081hw8wlf67y"]
 
-[ext_resource type="Script" uid="uid://u2o0vssvcum2" path="res://Scenes/Scripts/key.gd" id="1_c40qh"]
-[ext_resource type="Texture2D" uid="uid://be266huvshq57" path="res://Art_Assets/2D_Elements/Key_sprite.png" id="1_f5qjs"]
+[ext_resource type="Script" uid="uid://c2c2kkt540tdj" path="res://Scenes/Objects/key.gd" id="1_c40qh"]
+[ext_resource type="Texture2D" uid="uid://cbhpn3kunr8y2" path="res://Art_Assets/Simple Assets/Key_sprite.png" id="1_f5qjs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rt11x"]
-size = Vector2(10, 18)
 
 [sub_resource type="Animation" id="Animation_f5qjs"]
-resource_name = "FloatAnim"
-length = 4.0
-loop_mode = 1
+resource_name = "floating"
+length = 0.4
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,38 +16,10 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4),
-"transitions": PackedFloat32Array(0.4, 1.9, 0.5, 1.9, 1.6),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -4.5), Vector2(0, 0), Vector2(0, 4.5), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_hqtop"]
-resource_name = "ObtainedAnim"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 1.3),
-"transitions": PackedFloat32Array(0.5, 2, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -50), Vector2(0, 0), Vector2(0, 350)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [Vector2(7.15256e-07, 5.96046e-08), Vector2(0, -5)]
 }
 
 [sub_resource type="Animation" id="Animation_c40qh"]
@@ -63,26 +34,54 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(7.15256e-07, 5.96046e-08)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [6.28319]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_c40qh"]
+[sub_resource type="Animation" id="Animation_hqtop"]
+resource_name = "key-falling"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(7.15256e-07, 5.96046e-08), Vector2(0, -50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hqtop"]
 _data = {
-&"FloatAnim": SubResource("Animation_f5qjs"),
-&"ObtainedAnim": SubResource("Animation_hqtop"),
-&"RESET": SubResource("Animation_c40qh")
+&"RESET": SubResource("Animation_c40qh"),
+&"floating": SubResource("Animation_f5qjs"),
+&"key-falling": SubResource("Animation_hqtop")
 }
 
 [node name="Key" type="Area2D"]
@@ -91,18 +90,19 @@ collision_mask = 4
 monitorable = false
 script = ExtResource("1_c40qh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -1.57079
-scale = Vector2(2.08963, 2.08963)
-shape = SubResource("RectangleShape2D_rt11x")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -1.57079
-scale = Vector2(0.644636, 0.644636)
+position = Vector2(7.15256e-07, 5.96046e-08)
+rotation = 6.28319
+scale = Vector2(0.3125, 0.3125)
 texture = ExtResource("1_f5qjs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rt11x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_c40qh")
+&"": SubResource("AnimationLibrary_hqtop")
 }
-speed_scale = 1.2
+autoplay = "floating"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

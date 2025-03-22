@@ -1,12 +1,13 @@
 extends Node2D
+class_name Instance
 
-var current_level_details
+var current_level_details: PackedScene
 
 func _ready() -> void:
-	Global.game_instance = $Game
-	Global.game_camera = $Camera2D
+	Global.game_instance = self
 	Global.music_player = $MusicPlayer
 	Global.sound_player = $SoundPlayer
+	Global.game_container = $Game
 
 ## Changes the Game State between ALPHA and BETA.
 ## This will focus the game on what needs to be synced to what. 
@@ -16,11 +17,27 @@ func change_state(new_state: GameState.Version):
 func pick_next_state():
 	Global.game_version += 1
 	if Global.game_version >= GameState.Version.size():
-		Global.game_version = 1
+		Global.game_version = GameState.Version.GS_ALPHA
 	Global.version_changed.emit(Global.game_version)
 
+func clear_game_container():
+	for entry in Global.game_container.get_children():
+		entry.queue_free()
+
+# This creates a lot of errors when 
+func setup_level():
+	await clear_game_container()
+	var new_level = current_level_details.instantiate()
+	Global.game_container.add_child(new_level)
+	Global.game_started.emit()
+	Global.game_version = GameState.Version.GS_ALPHA
+	Global.music_player.stream = load("res://Art_Assets/Music/8bit.mp3")
+	Global.music_player.play()
+
 func restart_level():
-	pass
+	setup_level()
 	
-func load_level_details():
-	pass
+func load_level_details(scene):
+	await clear_game_container()
+	current_level_details = load(scene)
+	setup_level()

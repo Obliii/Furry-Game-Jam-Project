@@ -17,8 +17,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta: float) -> void:
 	calculate_gravity(delta)
 	jump_input()
-	
-	entity.velocity.x = entity.velocity.x * move_speed
 	entity.move_and_slide()
 
 ## Calculates the amount of time the player should fly up before they start descending. 
@@ -36,6 +34,7 @@ func jump_input():
 	if Input.is_action_just_pressed("move_jump") and is_grounded():
 		jump_held = true
 		climbing_ladder = false
+		Global.play_sound(Global.jump_sound)
 	if Input.is_action_just_released("move_jump") or not is_grounded():
 		jump_held = false
 	
@@ -54,6 +53,9 @@ func climb_ladder(vertical_move):
 			climbing_ladder = true
 			jump_held = false
 	
+
+func move_entity(direction):
+	entity.velocity.x = direction * move_speed
 
 func is_grounded() -> bool:
 	if air_time < air_time_max:
