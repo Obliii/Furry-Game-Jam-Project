@@ -1,12 +1,13 @@
 extends Node2D
+class_name Instance
 
 var current_level_details
 
 func _ready() -> void:
-	Global.game_instance = $Game
-	Global.game_camera = $Camera2D
+	Global.game_instance = self
 	Global.music_player = $MusicPlayer
 	Global.sound_player = $SoundPlayer
+	Global.game_container = $Game
 
 ## Changes the Game State between ALPHA and BETA.
 ## This will focus the game on what needs to be synced to what. 

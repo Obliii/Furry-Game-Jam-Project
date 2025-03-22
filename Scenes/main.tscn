@@ -7,8 +7,6 @@
 process_mode = 3
 script = ExtResource("1_bo1nx")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 bus = &"Music"
 
@@ -18,10 +16,6 @@ bus = &"Sound"
 
 [node name="Game" type="Node" parent="."]
 process_mode = 1
-
-[node name="AlphaScreen" type="Node2D" parent="Game"]
-
-[node name="BetaScreen" type="Node2D" parent="Game"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

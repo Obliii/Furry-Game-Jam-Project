@@ -1,12 +1,19 @@
 extends Control
 
+var game_scene = preload("res://Scenes/level_0.tscn")
+var game
+
 func _ready() -> void:
 	# Set focus for start button
 	%StartButton.grab_focus.call_deferred()
 	pass
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("uid://ellxio420wg0") # level_0
+	# Places level 0 into the Game Container so that earlier references are preserved.
+	if not game:
+		game = game_scene.instantiate()
+		Global.game_container.add_child(game)
+		 
 
 func _on_options_button_pressed() -> void:
 	pass # Replace with function body.

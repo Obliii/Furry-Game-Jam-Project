@@ -14,5 +14,5 @@ func _ready():
 	Global.version_changed.connect(_on_version_changed)
 	sprite.sprite_frames = beta_animation_sprite
 	
-func _on_version_changed(new_version, old_version):
+func _on_version_changed(new_version):
 	pass
