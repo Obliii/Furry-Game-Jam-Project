@@ -11,6 +11,7 @@ func _ready() -> void:
 func _on_start_button_pressed() -> void:
 	# Places level 0 into the Game Container so that earlier references are preserved.
 		Global.game_instance.load_level_details(game_scene)
+		hide()
 
 func _on_options_button_pressed() -> void:
 	pass # Replace with function body.
