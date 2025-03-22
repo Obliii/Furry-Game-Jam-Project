@@ -1,7 +1,7 @@
 extends Node2D
 class_name Instance
 
-var current_level_details
+var current_level_details: PackedScene
 
 func _ready() -> void:
 	Global.game_instance = self
@@ -20,8 +20,16 @@ func pick_next_state():
 		Global.game_version = 1
 	Global.version_changed.emit(Global.game_version)
 
+func setup_level():
+	var new_level = current_level_details.instantiate()
+	Global.game_container.add_child(new_level)
+
 func restart_level():
-	pass
+	setup_level()
+	Global.level_restarted.emit()
 	
-func load_level_details():
-	pass
+func load_level_details(scene):
+	for entry in Global.game_container.get_children():
+		entry.queue_free()
+	current_level_details = load(scene)
+	setup_level()

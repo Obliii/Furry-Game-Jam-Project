@@ -1,6 +1,6 @@
 extends Control
 
-var game_scene = preload("res://Scenes/level_0.tscn")
+var game_scene = "res://Scenes/level_0.tscn"
 var game
 
 func _ready() -> void:
@@ -10,10 +10,7 @@ func _ready() -> void:
 
 func _on_start_button_pressed() -> void:
 	# Places level 0 into the Game Container so that earlier references are preserved.
-	if not game:
-		game = game_scene.instantiate()
-		Global.game_container.add_child(game)
-		 
+		Global.game_instance.load_level_details(game_scene)
 
 func _on_options_button_pressed() -> void:
 	pass # Replace with function body.

@@ -13,4 +13,5 @@ var game_container: Node
 
 # Signals
 signal version_changed(new_state)
+signal level_restarted
 signal new_level_entered
