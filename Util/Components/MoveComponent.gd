@@ -34,6 +34,7 @@ func jump_input():
 	if Input.is_action_just_pressed("move_jump") and is_grounded():
 		jump_held = true
 		climbing_ladder = false
+		Global.play_sound(Global.jump_sound)
 	if Input.is_action_just_released("move_jump") or not is_grounded():
 		jump_held = false
 	

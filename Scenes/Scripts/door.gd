@@ -10,5 +10,7 @@ func _ready() -> void:
 func _body_entered(body: Node2D):
 	if body.is_in_group("Player"):
 		queue_free()
-		if associated_key:
+		if associated_key.has_method("key_obtained"):
+			associated_key.key_obtained()
+		else:
 			associated_key.queue_free()

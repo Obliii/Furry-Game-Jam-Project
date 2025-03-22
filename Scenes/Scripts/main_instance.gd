@@ -17,16 +17,20 @@ func change_state(new_state: GameState.Version):
 func pick_next_state():
 	Global.game_version += 1
 	if Global.game_version >= GameState.Version.size():
-		Global.game_version = 1
+		Global.game_version = GameState.Version.GS_ALPHA
 	Global.version_changed.emit(Global.game_version)
 
-func setup_level():
+func clear_game_container():
 	for entry in Global.game_container.get_children():
 		entry.queue_free()
+
+# This creates a lot of errors when 
+func setup_level():
+	await clear_game_container()
 	var new_level = current_level_details.instantiate()
 	Global.game_container.add_child(new_level)
 	Global.game_started.emit()
-	Global.game_version = GameState.Version.GS_BETA
+	Global.game_version = GameState.Version.GS_ALPHA
 	Global.music_player.stream = load("res://Art_Assets/Music/8bit.mp3")
 	Global.music_player.play()
 
@@ -34,7 +38,6 @@ func restart_level():
 	setup_level()
 	
 func load_level_details(scene):
-	for entry in Global.game_container.get_children():
-		entry.queue_free()
+	await clear_game_container()
 	current_level_details = load(scene)
 	setup_level()
